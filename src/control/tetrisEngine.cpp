@@ -3,6 +3,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <iostream>
+#include <memory>
 
 #include "tetrisEngine.hpp"
 #include "../model/structI.hpp"
@@ -23,7 +24,8 @@ struct TetrisEngine::GamePiece {
 	StructZ *structZ;
 };
 
-TetrisEngine::TetrisEngine() {
+TetrisEngine::TetrisEngine() 
+	: ptrPiece( std::make_unique< GamePiece >() ) {
 	// empty body
 }
 
@@ -31,6 +33,4 @@ void TetrisEngine::processMainField() const {
 	
 }
 
-TetrisEngine::~TetrisEngine() {
-
-}
+TetrisEngine::~TetrisEngine() = default;

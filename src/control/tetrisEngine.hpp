@@ -7,8 +7,6 @@
 
 #include "../view/interface.hpp"
 
-struct GamePiece;
-
 class TetrisEngine {
 	public:
 		TetrisEngine();
@@ -16,8 +14,9 @@ class TetrisEngine {
 
 		void processMainField() const;
 	private:
+		struct GameEngine; 
+		std::unique_ptr< GamePiece > ptrPiece;
 		Interface *interface;
-		std::unique_ptr< GamePiece > piece;
 };
 
 #endif
