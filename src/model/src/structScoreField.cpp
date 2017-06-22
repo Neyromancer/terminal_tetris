@@ -1,7 +1,9 @@
 // structScoreField.cpp
 #include <stdexcept>
 
-#include "structScoreField.hpp"
+#include "../headers/structScoreField.hpp"
+
+const std::string StructScoreField::FIELD_NAME = "SCORE";
 
 StructScoreField::StructScoreField( size_t w, size_t h, size_t scr ) : StructMainField( w, h ),
 	score( scr ) {
@@ -19,7 +21,7 @@ size_t StructScoreField::getScore() const {
 }
 
 const std::string &StructScoreField::getFieldName() const {
-	return fieldName;
+	return FIELD_NAME;
 }
 
 StructScoreField::~StructScoreField() {

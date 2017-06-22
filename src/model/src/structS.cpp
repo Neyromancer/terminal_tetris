@@ -1,5 +1,6 @@
 // structS.cpp
-#include "structS.hpp"
+
+#include "../headers/structS.hpp"
 
 StructS::StructS() {
 }

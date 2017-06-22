@@ -17,7 +17,7 @@ class StructLinesRemovedField: public StructMainField {
 		const std::string &getFieldName() const;	
 	private:
 		size_t removedLines;
-		static const std::string fieldName = "LINES";
+		static const std::string FIELD_NAME;
 };
 
 #endif

@@ -2,7 +2,7 @@
 #include <iostream>
 #include <iomanip>
 
-#include "interface.hpp"
+#include "../headers/interface.hpp"
 /**
   *
   * - Rewrite code to remove hardcoding
@@ -13,14 +13,14 @@
   *
 **/
 
-
 // ====================== util functions =====================
 static void displayField( const size_t index, const size_t height, const size_t width, const std::string &, bool );
 static void displayTitle( const size_t, const std::string & );
 static bool isEven( const size_t ); 
-static bool isEreaOqupied ( const size_t coordX, const size_t coorY );
+//static bool isEreaOqupied ( const size_t coordX, const size_t coorY );
 // ===========================================================
-Interface::Interface() {
+Interface::Interface() 
+	: ptrEngine( std::make_unique< TetrisEngine >() ) {
 	// empty body
 }
 
@@ -100,7 +100,7 @@ void Interface::displayMainField( size_t index ) const {
 			else std::cout << "  ";
 		for ( size_t fw = 0; fw < FIELD_WIDTH; ++fw ) {
 			if (  index < FIELD_HEIGHT - 2 ) {
-				if ( !isEreaOqupied( index, fw ) )
+				if ( !( ptrEngine->isEreaOccupied( index, fw ) ) )
 					std::cout << " .";
 				else 
 					std::cout << "[]";
@@ -212,11 +212,12 @@ static void displayTitle( const size_t width, const std::string &title ) {
 		}
 	}
 }
-
+/*
 static bool isEreaOqupied ( const size_t coordX, const size_t coorY ) {
+
 	return false;
 }
-
+*/
 static bool isEven( const size_t size ) {
 	return ( size % 2 == 0 );
 }

@@ -1,5 +1,6 @@
 // structT.cpp
-#include "structT.hpp"
+
+#include "../headers/structT.hpp"
 
 StructT::StructT() {
 }

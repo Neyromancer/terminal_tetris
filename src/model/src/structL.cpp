@@ -1,5 +1,6 @@
 // structL.cpp
-#include "structL.hpp"
+
+#include "../headers/structL.hpp"
 
 StructL::StructL() {
 }

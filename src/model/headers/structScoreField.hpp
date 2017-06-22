@@ -17,7 +17,7 @@ class StructScoreField: public StructMainField {
 		const std::string &getFieldName() const;	
 	private:
 		size_t score;
-		static const std::string fieldName = "SCORE";
+		static const std::string FIELD_NAME;
 };
 
 #endif

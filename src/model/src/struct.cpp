@@ -1,5 +1,6 @@
-// inteface.cpp
-#include "struct.hpp"
+// struct.cpp
+
+#include "../headers/struct.hpp"
 
 Struct::Struct() 
 	: elemPos( 0 ),

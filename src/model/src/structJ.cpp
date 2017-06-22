@@ -1,5 +1,6 @@
 // structJ.cpp
-#include "structJ.hpp"
+
+#include "../headers/structJ.hpp"
 
 StructJ::StructJ() {
 }

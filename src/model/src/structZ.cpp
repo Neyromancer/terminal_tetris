@@ -1,5 +1,6 @@
 // structZ.cpp
-#include "structZ.hpp"
+
+#include "../headers/structZ.hpp"
 
 StructZ::StructZ() {
 }

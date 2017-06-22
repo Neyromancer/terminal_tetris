@@ -1,5 +1,6 @@
 // structO.cpp
-#include "structO.hpp"
+
+#include "../headers/structO.hpp"
 
 StructO::StructO() {
 }

@@ -1,7 +1,9 @@
 // structLevelField.cpp
 #include <stdexcept>
 
-#include "structLevelField.hpp"
+#include "../headers/structLevelField.hpp"
+
+const std::string A::FIELD_NAME = "LEVEL";
 
 StructLevelField::StructLevelField( size_t w, size_t h, size_t lvl ) : StructMainField( w, h ),
 	level( lvl ) {
@@ -19,7 +21,7 @@ size_t StructLevelField::getLevel() const {
 }
 
 const std::string &StructScoreField::getFieldName() const {
-	return fieldName;
+	return FIELD_NAME;
 }
 
 StructLevelField::~StructLevelField() {

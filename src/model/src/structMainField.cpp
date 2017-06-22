@@ -1,7 +1,8 @@
 // structMainField.cpp
+
 #include <stdexcept>
 
-#include "structMainField.hpp"
+#include "../headers/structMainField.hpp"
 
 StructMainField::StructMainField( size_t w, size_t h ) 
 	: width( w ),

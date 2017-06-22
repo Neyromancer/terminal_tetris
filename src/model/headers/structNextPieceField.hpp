@@ -9,17 +9,17 @@
 
 class StructNextPieceField: public StructMainField {
 	public:
-		StructNextPieceField( size_t = 7, size_t = 7,  std::array< std::array< char >, 4 >, 4 > & );
+		StructNextPieceField( size_t = 7, size_t = 7 /*,  std::array< std::array< char, 4 >, 4 > const &*/ );
 		~StructNextPieceField();
 	
-		void setPiece( const std::array< std::array< char >, 4 >, 4 > & );
-		const std::array< std::array< char >, 4 >, 4 > &getPice() const;	
+		void setPiece( const std::array< std::array< char, 4 >, 4 > & );
+		const std::array< std::array< char, 4 >, 4 > &getPice() const;	
 
 		const std::string &getFieldName() const;
 	
 	private:
-		std::array< std::array< char >, 4 >, 4 > piece;
-		static const std::string fieldName = "NEXT";
+		std::array< std::array< char, 4 >, 4 > piece;
+		static const std::string FIELD_NAME;
 };
 
 #endif

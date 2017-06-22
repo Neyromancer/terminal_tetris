@@ -17,7 +17,7 @@ class StructLevelField: public StructMainField {
 		const std::string &getFieldName() const;	
 	private:
 		size_t level;
-		static const std::string fieldName = "LEVEL";
+		static const std::string FIELD_NAME;
 };
 
 #endif

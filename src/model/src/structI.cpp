@@ -1,5 +1,5 @@
 // structI.cpp
-#include "structI.hpp"
+#include "../headers/structI.hpp"
 
 StructI::StructI() {
 }

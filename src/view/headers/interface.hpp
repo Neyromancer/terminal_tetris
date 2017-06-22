@@ -3,6 +3,10 @@
 #ifndef _INTERFACE_HPP_
 #define _INTERFACE_HPP_
 
+#include <memory>
+
+#include "../../control/headers/tetrisEngine.hpp"
+
 class Interface {
 	public:
 		Interface();
@@ -17,6 +21,8 @@ class Interface {
 		void displayLevelField( size_t ) const;
 		void displayNextPieceField( size_t ) const;
 		void displayCommandField( size_t ) const;
+
+		std::unique_ptr< TetrisEngine > ptrEngine;
 };
 
 #endif
