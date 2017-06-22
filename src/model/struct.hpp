@@ -33,11 +33,11 @@ class Struct {
 
 		// return array of 0 and 1's which are 
 		// represent elements
-		virtual const std::arrray< std::array< char >, 5 >, 5 > &displayStruct() const;
-		virtual const std::arrray< std::array< char >, 5 >, 5 > &frstPos() const = 0;
-		virtual const std::arrray< std::array< char >, 5 >, 5 > &scndPos() const = 0;
-		virtual const std::arrray< std::array< char >, 5 >, 5 > &thrdPos() const = 0;
-		virtual const std::arrray< std::array< char >, 5 >, 5 > &frthPos() const = 0;
+		virtual const std::array< std::array< char, 5 >, 5 > &displayStruct() const;
+		virtual const std::array< std::array< char, 5 >, 5 > &frstPos() const = 0;
+		virtual const std::array< std::array< char, 5 >, 5 > &scndPos() const = 0;
+		virtual const std::array< std::array< char, 5 >, 5 > &thrdPos() const = 0;
+		virtual const std::array< std::array< char, 5 >, 5 > &frthPos() const = 0;
 
 	private:
 		size_t elemPos;	// any element has 4 possible possitions
@@ -45,7 +45,7 @@ class Struct {
 		size_t cootdY;	// coord y of the top left corner
 		size_t width;	// element's width
 		size_t height;	// element's height
-		std::array< std::array< char >, 5 >, 5 > element;	// stays for the field of 0's and 1's
+		std::array< std::array< char, 5 >, 5 > element;	// stays for the field of 0's and 1's
 
 };
 

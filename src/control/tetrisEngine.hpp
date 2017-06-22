@@ -14,7 +14,7 @@ class TetrisEngine {
 
 		void processMainField() const;
 	private:
-		struct GameEngine; 
+		struct GamePiece; 
 		std::unique_ptr< GamePiece > ptrPiece;
 		Interface *interface;
 };

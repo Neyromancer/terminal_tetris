@@ -11,6 +11,7 @@
 #include "../model/structL.hpp"
 #include "../model/structO.hpp"
 #include "../model/structS.hpp"
+#include "../model/structZ.hpp"
 #include "../model/structT.hpp"
 #include "../model/struct.hpp"
 
@@ -30,7 +31,9 @@ TetrisEngine::TetrisEngine()
 }
 
 void TetrisEngine::processMainField() const {
-	
+	ptrPiece->structO = new StructO;
+
+
 }
 
 TetrisEngine::~TetrisEngine() = default;

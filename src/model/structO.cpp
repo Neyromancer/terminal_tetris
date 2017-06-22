@@ -4,7 +4,7 @@
 StructO::StructO() {
 }
 
-const std::arrray< std::array< char >, 5 >, 5 > &StructO::displayStruct() const override {
+const std::array< std::array< char, 5 >, 5 > &StructO::displayStruct() const override {
 	if ( getPosition() == 1 )
 		return frstPos();
 	else if ( getPosition() == 2 )
@@ -14,41 +14,41 @@ const std::arrray< std::array< char >, 5 >, 5 > &StructO::displayStruct() const 
 	else return frthPos();
 }
 
-const std::arrray< std::array< char >, 5 >, 5 > &StructO::frstPos() const override {
-	std::array< std::array< char >, 5 >, 5 > Struct::element = {{ { 1, 1, 0, 0, 0 },
-       { 1, 1, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-     }};
+const std::array< std::array< char, 5 >, 5 > &StructO::frstPos() const override {
+	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 0, 0, 0 },
+      								     { 1, 1, 0, 0, 0 },
+      								     { 0, 0, 0, 0, 0 },
+      								     { 0, 0, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+  								   } };
 }
 
-const std::arrray< std::array< char >, 5 >, 5 > &StructO::scndPos() const override {
-	std::array< std::array< char >, 5 >, 5 > Struct::element = {{ { 1, 1, 0, 0, 0 },
-       { 1, 1, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-     }};
+const std::array< std::array< char, 5 >, 5 > &StructO::scndPos() const override {
+	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 0, 0, 0 },
+      								     { 1, 1, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+      								     { 0, 0, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+     								    } };
 }
 
-const std::arrray< std::array< char >, 5 >, 5 > &StructO::thrdPos() const override {
-	std::array< std::array< char >, 5 >, 5 > Struct::element = {{ { 1, 1, 0, 0, 0 },
-       { 1, 1, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-     }};
+const std::array< std::array< char, 5 >, 5 > &StructO::thrdPos() const override {
+	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 0, 0, 0 },
+    								     { 1, 1, 0, 0, 0 },
+    								     { 0, 0, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+      								     { 0, 0, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+   								   } };
 }
 
-const std::arrray< std::array< char >, 5 >, 5 > &StructO::frthPos() const override {
-	std::array< std::array< char >, 5 >, 5 > Struct::element = {{ { 1, 1, 0, 0, 0 },
-       { 1, 1, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-       { 0, 0, 0, 0, 0 },
-     }};
+const std::array< std::array< char, 5 >, 5 > &StructO::frthPos() const override {
+	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 0, 0, 0 },
+      								     { 1, 1, 0, 0, 0 },
+       								     { 0, 0, 0, 0, 0 },
+     								     { 0, 0, 0, 0, 0 },
+    								     { 0, 0, 0, 0, 0 },
+     								   } };
 }
 
 StructO::~StructO() {

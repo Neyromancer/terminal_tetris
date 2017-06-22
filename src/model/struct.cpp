@@ -83,7 +83,7 @@ void Struct::mvStructDown() {
 	setCoordY( ++getCoord() );
 }
 
-virtual const std::arrray< std::array< char >, 5 >, 5 > &Struct::displayStruct() const {
+virtual const std::array< std::array< char, 5 >, 5 > &Struct::displayStruct() const {
 	if ( getPosition() == 1 )
 		return frstPos();
 	else if ( getPosition() == 2 )
