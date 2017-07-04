@@ -1,10 +1,20 @@
 // structI.cpp
+#include "../headers/struct.hpp"
 #include "../headers/structI.hpp"
 
-StructI::StructI() {
+StructI::StructI( size_t pos, size_t x, size_t y )
+	: Struct( pos, x, y ) {
 }
 
-const std::arrray< std::array< char, 5 >, 5 > &StructI::displayStruct() const override {
+std::array< std::array< size_t, 5 >, 5 > &StructI::displayStruct() {
+	switch( getPosition() ) {
+		case 1: return frstPos();
+		case 2: return scndPos();
+		case 3: return thrdPos();
+	}
+
+	return frthPos();
+/*
 	if ( getPosition() == 1 )
 		return frstPos();
 	else if ( getPosition() == 2 )
@@ -12,43 +22,45 @@ const std::arrray< std::array< char, 5 >, 5 > &StructI::displayStruct() const ov
 	else if ( getPosition() == 3 )
 		return thrdPos();
 	else return frthPos();
+*/
 }
 
-const std::array< std::array< char, 5 >, 5 > &StructI::frstPos() const override {
-	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 1, 1, 0 },
-      								     { 0, 0, 0, 0, 0 },
-     								     { 0, 0, 0, 0, 0 },
-      								     { 0, 0, 0, 0, 0 },
-  								     { 0, 0, 0, 0, 0 },
-     								   } };
+std::array< std::array< size_t, 5 >, 5 > &StructI::frstPos() {
+	return Struct::element = { { { 1, 1, 1, 1, 0 },
+      				     { 0, 0, 0, 0, 0 },
+     				     { 0, 0, 0, 0, 0 },
+      				     { 0, 0, 0, 0, 0 },
+  				     { 0, 0, 0, 0, 0 },
+     								   				  } };
 }
 
-const std::array< std::array< char, 5 >, 5 > &StructI::scndPos() const override {
-	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 0, 0, 0, 0 },
-      								     { 1, 0, 0, 0, 0 },
-  								     { 1, 0, 0, 0, 0 },
-     								     { 1, 0, 0, 0, 0 },
-   								     { 0, 0, 0, 0, 0 },
-     								   } };
+std::array< std::array< size_t, 5 >, 5 > &StructI::scndPos() {
+	return Struct::element = { { { 1, 0, 0, 0, 0 },
+      								     				    { 1, 0, 0, 0, 0 },
+  								     				    { 1, 0, 0, 0, 0 },
+     								     				    { 1, 0, 0, 0, 0 },
+   								     				    { 0, 0, 0, 0, 0 },
+     								   				  } };
 }
 
-const std::array< std::array< char, 5 >, 5 > &StructI::thrdPos() const override {
-	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 1, 1, 1, 0 },
-      								     { 0, 0, 0, 0, 0 },
-     								     { 0, 0, 0, 0, 0 },
-      								     { 0, 0, 0, 0, 0 },
-  								     { 0, 0, 0, 0, 0 },
-     								   } };
+std::array< std::array< size_t, 5 >, 5 > &StructI::thrdPos() {
+	return Struct::element = { { { 1, 1, 1, 1, 0 },
+      								     				    { 0, 0, 0, 0, 0 },
+     								     				    { 0, 0, 0, 0, 0 },
+      								     				    { 0, 0, 0, 0, 0 },
+  								     				    { 0, 0, 0, 0, 0 },
+     								   				  } };
 }
 
-const std::array< std::array< char, 5 >, 5 > &StructI::frthPos() const override {
-	std::array< std::array< char, 5 >, 5 > Struct::element = { { { 1, 0, 0, 0, 0 },
-      								     { 1, 0, 0, 0, 0 },
-    								     { 1, 0, 0, 0, 0 },
-     								     { 1, 0, 0, 0, 0 },
-   								     { 0, 0, 0, 0, 0 },
-    								   } };
+std::array< std::array< size_t, 5 >, 5 > &StructI::frthPos() {
+	return Struct::element = { { { 1, 0, 0, 0, 0 },
+      								     				    { 1, 0, 0, 0, 0 },
+    								     				    { 1, 0, 0, 0, 0 },
+     								     				    { 1, 0, 0, 0, 0 },
+   								     				    { 0, 0, 0, 0, 0 },
+    								  	 			  } };
 }
-
+/*
 StructI::~StructI() {
 }
+*/

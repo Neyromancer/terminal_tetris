@@ -2,23 +2,23 @@
 
 #include "../headers/struct.hpp"
 
-Struct::Struct() 
-	: elemPos( 0 ),
-	  coordX( 0 ),
-	  coordY( 0 ) {
+Struct::Struct( size_t pos, size_t xx, size_t yy ) 
+	: elemPos( ( pos < 1 || pos > 4 ) ? 1 : pos ),
+	  coordX(  ( xx < 0 ) ? 0 : xx ),
+	  coordY(  ( yy < 0 ) ? 0 : yy ) {
 	// empty body
 }
 
 void Struct::setPosition( const size_t pos ) {
 	// check if pos whithin the range of possible possitions
-	if ( pos >= 1 pos <= 4 )
+	if ( pos >= 1 && pos <= 4 )
 		elemPos = pos;
 	else 
-		throw invalid_argument( "figure can't have this position" );
+		throw std::invalid_argument( "figure can't have this position" );
 }
 
 size_t Struct::getPosition() const {
-	return elementPos;
+	return elemPos;
 }
 
 void Struct::setCoordX( const size_t crdX ) {
@@ -27,7 +27,7 @@ void Struct::setCoordX( const size_t crdX ) {
 	if ( crdX > 0 && crdX < 18 )
 		coordX = crdX;
 	else
-		throw invalid_argument( "figure is out of the playable field" );
+		throw std::invalid_argument( "figure is out of the playable field" );
 }	
 
 size_t Struct::getCoordX() const {
@@ -40,7 +40,7 @@ void Struct::setCoordY( const size_t crdY ) {
 	if ( crdY > 0 && crdY < 18 )
 		coordY = crdY;	
 	else
-		throw invalid_argument( "figure is out of the playable field" );	
+		throw std::invalid_argument( "figure is out of the playable field" );	
 }
 
 size_t Struct::getCoordY() {
@@ -59,7 +59,7 @@ void Struct::setHeight( const size_t h ) {
 	height = h;
 }
 
-virtual size_t Struct::getHeight() const {
+size_t Struct::getHeight() const {
 	return height;
 }
 
@@ -69,21 +69,21 @@ void Struct::setStructCoord( const size_t x, const size_t y ) {
 }
 
 void Struct::mvStructLeft() {
-	setCoordX( --getCoordX() );
+	setCoordX( --coordX );
 }
 
 void Struct::mvStructRight() {
-	setCoordX( ++getCoordX() );
+	setCoordX( ++coordX );
 }
 
 void Struct::mvStructUp() {
-	setCoordY( --getCoordY() );
+	setCoordY( --coordY );
 }
 
 void Struct::mvStructDown() {
-	setCoordY( ++getCoord() );
+	setCoordY( ++coordY );
 }
-
+/*
 virtual const std::array< std::array< char, 5 >, 5 > &Struct::displayStruct() const {
 	if ( getPosition() == 1 )
 		return frstPos();
@@ -93,9 +93,10 @@ virtual const std::array< std::array< char, 5 >, 5 > &Struct::displayStruct() co
 		return thrdPos();
 	else return frthPos();
 }
-
-virtual Struct::~Struct() {
+*/
+/*
+Struct::~Struct() {
 
 }
-
+*/
 		

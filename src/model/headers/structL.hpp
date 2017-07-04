@@ -6,16 +6,16 @@
 
 class StructL: public Struct {
 	public:
-		StructL();
-		~StructL();
+		StructL( size_t = 1, size_t = 0, size_t = 0 );
+		~StructL() {}
 
 		// return array of 0 and 1's which are 
 		// represent elements
-		virtual const std::array< std::array< char, 5 >, 5 > &displayStruct() const override;
-		const std::array< std::array< char, 5 >, 5 > &frstPos() const override;
-		virtual const std::array< std::array< char, 5 >, 5 > &scndPos() const override;
-		virtual const std::array< std::array< char, 5 >, 5 > &thrdPos() const override;
-		virtual const std::array< std::array< char, 5 >, 5 > &frthPos() const override;
+		virtual std::array< std::array< size_t, 5 >, 5 > &displayStruct() override;
+		std::array< std::array< size_t, 5 >, 5 > &frstPos() override;
+		virtual std::array< std::array< size_t, 5 >, 5 > &scndPos() override;
+		virtual std::array< std::array< size_t, 5 >, 5 > &thrdPos() override;
+		virtual std::array< std::array< size_t, 5 >, 5 > &frthPos() override;
 
 };
 
