@@ -7,10 +7,10 @@
 class StructMainField {
 	public:
 		StructMainField( size_t = 18, size_t = 30 );
-		~StructMainField();
+		~StructMainField(){}
 		
-		const std::array< std::array< char, 7 >, 7 > &getField() const;
-		void setField( size_t row, size_t cell, char value /* = 0 or 1 */ );
+		const std::array< std::array< size_t, 18 >, 30 > &getField() const;
+		void setField( size_t row, size_t cell, size_t value /* = 0 or 1 */ );
 
 		void setWidth( const size_t );
 		size_t getWidth() const;
@@ -22,7 +22,7 @@ class StructMainField {
 		void fillField();
 		size_t width;	// field's width
 		size_t height;	// field's height
-		std::array< std::array< char, 7 >, 7 > element;	// stays for the field of 0's and 1's
+		std::array< std::array< size_t, 18 >, 30 > element;	// stays for the field of 0's and 1's
 
 };
 

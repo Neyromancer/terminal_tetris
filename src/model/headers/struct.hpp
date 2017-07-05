@@ -34,11 +34,14 @@ class Struct {
 
 		// return array of 0 and 1's which are 
 		// represent elements
-		virtual std::array< std::array< size_t, 5 >, 5 > &displayStruct() = 0;
-		virtual std::array< std::array< size_t, 5 >, 5 > &frstPos() = 0;
-		virtual std::array< std::array< size_t, 5 >, 5 > &scndPos() = 0;
-		virtual std::array< std::array< size_t, 5 >, 5 > &thrdPos() = 0;
-		virtual std::array< std::array< size_t, 5 >, 5 > &frthPos() = 0;
+		virtual const std::array< std::array< size_t, 5 >, 5 > &displayStruct() = 0;
+
+		virtual const std::array< std::array< size_t, 5 >, 5 > &getPos() const = 0;
+
+		virtual void setFrstPos() = 0;
+		virtual void setScndPos() = 0;
+		virtual void setThrdPos() = 0;
+		virtual void setFrthPos() = 0;
 
 	private:
 		size_t elemPos;	// any element has 4 possible possitions

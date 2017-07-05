@@ -11,11 +11,14 @@ class StructZ: public Struct {
 
 		// return array of 0 and 1's which are 
 		// represent elements
-		virtual std::array< std::array< size_t, 5 >, 5 > &displayStruct() override;
-		virtual std::array< std::array< size_t, 5 >, 5 > &frstPos() override;
-		virtual std::array< std::array< size_t, 5 >, 5 > &scndPos() override;
-		virtual std::array< std::array< size_t, 5 >, 5 > &thrdPos() override;
-		virtual std::array< std::array< size_t, 5 >, 5 > &frthPos() override;
+		virtual const std::array< std::array< size_t, 5 >, 5 > &displayStruct() override;
+
+		virtual const std::array< std::array< size_t, 5 >, 5 > &getPos() const override;
+
+		virtual void setFrstPos() override;
+		virtual void setScndPos() override;
+		virtual void setThrdPos() override;
+		virtual void setFrthPos() override;
 
 };
 
