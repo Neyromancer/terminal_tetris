@@ -10,7 +10,7 @@ StructMainField::StructMainField( size_t w, size_t h )
 	fillField();
 }
 		
-const std::array< std::array< size_t, 18 >, 30 > &StructMainField::getField() const {
+const std::array< std::array< size_t, 10 >, 24 > &StructMainField::getField() const {
 	return element;
 }
 
@@ -36,7 +36,7 @@ void StructMainField::setField( size_t row, size_t cell, size_t value /* = 0 or 
 
 // set main field width
 void StructMainField::setWidth( const size_t w ) {
-	if ( w >= 12 )
+	if ( w >= 24 )
 		width = w;
 	else
 		throw 
@@ -50,7 +50,7 @@ size_t StructMainField::getWidth() const {
 
 // set main field height
 void StructMainField::setHeight( const size_t h ) {
-	if ( h >= 18 )
+	if ( h >= 10 )
 		height = h;
 	else
 		throw 
@@ -67,4 +67,8 @@ size_t StructMainField::getHeight() const {
 void StructMainField::fillField() {
 	for ( auto it = element.begin(); it != element.end(); ++it )
 		it->fill( 0 );
+}
+
+bool StructMainField::isAreaOccupied( size_t x, size_t y ) const {
+	return getField().at( y ).at( x ) == 1;
 }

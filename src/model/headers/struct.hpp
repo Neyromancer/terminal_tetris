@@ -12,7 +12,9 @@ class Struct {
 
 		void setPosition( const size_t );
 		size_t getPosition() const;
-		
+	
+		// coord represent 1st cell in the array
+		// which stays for the tetromino	
 		void setCoordX( const size_t );
 		size_t getCoordX() const;
 

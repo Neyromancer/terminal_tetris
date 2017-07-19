@@ -19,8 +19,15 @@ static void displayTitle( const size_t, const std::string & );
 static bool isEven( const size_t ); 
 //static bool isEreaOqupied ( const size_t coordX, const size_t coorY );
 // ===========================================================
-Interface::Interface() 
-	: ptrEngine( std::make_unique< TetrisEngine >() ) {
+Interface::Interface( size_t h, size_t w ) 
+	: scrnH( h ), scrnW( w ),
+	  mFldH( 24 ), mFldW( 10 ),
+	  scrFldH( 7 ), scrFldW( 7 ),
+	  lRmvdFldH( 7 ), lRmvdW( 7 ),
+	  lvlFldH( 7 ), lvlFldW( 7 ),
+	  nxtPcFldH( 10 ), nxtPcFldH( 10 ),
+	  cmdFldH( 7 ), cmdFldW( 7 ),
+	  tetroH( 5 ), tetroW( 5 ) {
 	// empty body
 }
 
@@ -100,7 +107,7 @@ void Interface::displayMainField( size_t index ) const {
 			else std::cout << "  ";
 		for ( size_t fw = 0; fw < FIELD_WIDTH; ++fw ) {
 			if (  index < FIELD_HEIGHT - 2 ) {
-				if ( !( ptrEngine->isEreaOccupied( index, fw ) ) )
+				if ( fieldState::OCCUPIED )
 					std::cout << " .";
 				else 
 					std::cout << "[]";
@@ -220,6 +227,189 @@ static bool isEreaOqupied ( const size_t coordX, const size_t coorY ) {
 */
 static bool isEven( const size_t size ) {
 	return ( size % 2 == 0 );
+}
+
+size_t Interface::getScreenHeight() const {
+	return screenHeight;
+}
+
+void Interface::setScreenHeight( size_t h ) {
+	if ( h >= 32 )
+		screenHeight = h;
+	else {
+		std::cout << "Screen height is to small for the game."
+			  << "\nResize it appropriately" << std::endl;
+		screenHeight = 32;
+	}
+}
+
+size_t Interface::getScreenWidth() const {
+	return screenWidth;
+}
+
+void Interface::setScreenWidth( size_t w ) {
+	if ( w >= 30 )
+		screenWidth = w;
+	else {
+		std::cout << "Screen width is to small for the game."
+			  << "\nResize it appropriately" << std::endl;
+		screenWidth = 18;
+	}
+
+}
+
+void Interface::setMainFieldHeight( size_t h ) {
+	if ( h >= 24 )
+		mFldH = h;
+	else
+		mFld = 24;
+}
+
+size_t Interface::getMainFieldHeight() const {
+	return mFldH;
+}
+
+void Interface::setMainFieldWidth( size_t w ) {
+	if ( w >= 10 )
+		mFldW = w;
+	else
+		mFldW = 10;
+}
+
+size_t Interface::getMainfFieldWidth() const {
+	return mFldW;
+}
+
+void Interface::setScoreFieldHeight( size_t h ) {
+	if ( h >= 7 )
+		scrFldH = h
+	else
+		scrFldH = 7;
+}
+
+size_t Interface::getScoreFieldHeight() const {
+	return scrFldH;
+}
+
+void Interface::setScoreFieldWidth( size_t w ) {
+	if ( w >= 7 )
+		scrFldW = w;
+	else
+		scrFldW = 7;
+}
+
+size_t Interface::getScoreFieldWidth() const {
+	return scrFldW;
+}
+
+void Interface::setLinesFieldHeight( size_t h ) {
+	if ( h >= 7 )
+		lRmvdFldH = h;
+	else
+		lRmvdFldH = 7;
+}
+
+size_t Interface::getLinesFieldHeight() const {
+	return lRmvdFldH;
+}
+
+void Interface::setLinesFieldWidth( size_t w ) {
+	if ( w >= 7 )
+		lRmvdFldW = w;
+	else
+		lRmvdFldW = 7;
+}
+
+size_t Interface::getLinesFieldWidth() const {
+	return lRmvdFldW;
+}
+
+void Interface::setLevelFieldHeight( size_t h ) {
+	if ( h >= 7 )
+		lvlFldH = h;
+	else
+		lvlFldH = 7;
+}
+
+size_t Interface::getLevelFieldHeight() const {
+	return lvlFldH;
+}
+
+void Interface::setLevelFieldWidth( size_t w ) {
+	if ( w >= 7 )
+		lvlFldW = w;
+	else
+		lvlFldW = 7;
+}
+
+size_t Interface::getLevelFieldWidth() const {
+	return lvlFldW;
+}
+
+void Interface::setNextPieceFieldHeight( size_t h ) {
+	if ( h >= 10 )
+		nxtPcFldH = h;
+	else
+		nxtPcFldH = 10;
+}
+
+size_t Interface::getNextPieceFieldHeight() const {
+	return nxtPcFldH;
+}
+
+void Interface::setNextPieceFieldWidth( size_t w ) {
+	if ( w >= 10 )
+		nxtPcFldW = w;
+	else
+		nxtPcFldW = 10;
+}
+
+size_t Interface::getNextPieceFieldWidth() const {
+	return nxtPcFldW;
+}
+
+void Interface::setCommandFieldHeight( size_t h ) {
+	if ( h >= 7 )
+		cmdFldH = h;
+	else
+		cmdFldH = 7;
+}
+
+size_t Interface::getCommandFieldHeight() const {
+	return cmdFldH;
+}
+
+void Interface::setCommandFieldWidth( size_t w ) {
+	if ( w >= 7 )
+		cmdFldW = w;
+	else
+		cmdFldW = 7;
+}
+
+size_t Interface::getCommandFieldWidth() const {
+	return cmdFldW;
+}
+
+void Interface::setTetrominoHeight( size_t h ) {
+	if ( h >= 5 )
+		tetroH = h;
+	else
+		tetroH = 5;
+}
+
+size_t Interface::getTetrominoHeight() const {
+	return tetroH;
+}
+
+void Interface::setTetrominoWidth( size_t w ) {
+	if ( w >= 5 )
+		tetroW = w;
+	else
+		tetroW = 5;
+}
+
+size_t Interface::getTetrominoWidth() const {
+	return tetroW;
 }
 
 Interface::~Interface() {
