@@ -20,7 +20,8 @@ static bool isEven( const size_t );
 //static bool isEreaOqupied ( const size_t coordX, const size_t coorY );
 // ===========================================================
 Interface::Interface( size_t h, size_t w ) 
-	: scrnH( h ), scrnW( w ),
+	: ptrEngine( std::make_unique< TetrisEngine >() ),
+	  scrnH( h ), scrnW( w ),
 	  mFldH( 24 ), mFldW( 10 ),
 	  scrFldH( 7 ), scrFldW( 7 ),
 	  lRmvdFldH( 7 ), lRmvdW( 7 ),
@@ -99,7 +100,7 @@ void Interface::displayInterface() const {
 	}
 }
 
-void Interface::displayMainField( size_t index ) const {
+void Interface::displayMainField(  size_t index ) const {
 	const size_t FIELD_HEIGHT = 30;
 	const size_t FIELD_WIDTH = 18;
 			if ( index != FIELD_HEIGHT - 1 )
@@ -107,7 +108,7 @@ void Interface::displayMainField( size_t index ) const {
 			else std::cout << "  ";
 		for ( size_t fw = 0; fw < FIELD_WIDTH; ++fw ) {
 			if (  index < FIELD_HEIGHT - 2 ) {
-				if ( fieldState::OCCUPIED )
+				if ( ptrEngine->isAreaOccupied( fw, index ) )
 					std::cout << " .";
 				else 
 					std::cout << "[]";

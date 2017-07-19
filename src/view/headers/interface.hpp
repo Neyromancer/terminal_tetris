@@ -13,7 +13,7 @@ class Interface {
 		~Interface();
 
 		void displayInterface() const;
-		void displayMainField( size_t, size_t, int ) const;
+		void displayMainField( size_t ) const;
 		void displayScoreField( size_t ) const;
 		void displayLinesRemovedField( size_t ) const;
 		void displayLevelField( size_t ) const;
@@ -98,7 +98,7 @@ class Interface {
 		size_t tetroH;
 		size_t tetroW;
 
-		std::unique_ptr< tetrisEngine > ptrEngine;
+		std::unique_ptr< TetrisEngine > ptrEngine;
 };
 
 #endif

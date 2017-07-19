@@ -25,11 +25,20 @@ class TetrisEngine {
 		void createTetromino();
 
 		bool isAreaOccupied( const size_t coordX, const size_t coordY ) const;
-		bool isCollisionDetected( std::unique_ptr< Struct > const & ) const;
+		bool isCollisionDetected( size_t, size_t, std::unique_ptr< Struct > const & ) const;
 		bool isGameOver() const;
 
 		void checkLinesToDelete() const;
 		void deleteLine( size_t );
+
+		// add function to change gaps
+		// between game fields
+
+		// add function for saving
+		// add function for pausing the game
+		// add function for changin level
+		// which will also change game
+		// difficulties
 
 	private:
 		struct GamePiece; 
