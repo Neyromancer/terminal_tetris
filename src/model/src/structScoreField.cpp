@@ -1,7 +1,7 @@
 // structScoreField.cpp
 #include <stdexcept>
 
-#include "../headers/structScoreField.hpp"
+#include "structScoreField.hpp"
 
 const std::string StructScoreField::FIELD_NAME = "SCORE";
 

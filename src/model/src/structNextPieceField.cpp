@@ -1,6 +1,6 @@
 // structNextPieceField.cpp
 
-#include "../headers/structNextPieceField.hpp"
+#include "structNextPieceField.hpp"
 
 const std::string StructNextPieceField::FIELD_NAME = "NEXT";
 

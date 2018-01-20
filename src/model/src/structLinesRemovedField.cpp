@@ -1,6 +1,6 @@
 // structLinesRemovedField.cpp
 
-#include "../headers/structLinesRemovedField.hpp"
+#include "structLinesRemovedField.hpp"
 
 const std::string StructLinesRemovedField::FIELD_NAME = "LINES";
 StructLinesRemovedField::StructLinesRemovedField( size_t w, size_t h, size_t rmLines )

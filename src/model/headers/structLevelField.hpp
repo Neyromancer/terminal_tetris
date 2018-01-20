@@ -9,15 +9,16 @@
 class StructLevelField: public StructMainField {
 	public:
 		StructLevelField( size_t = 7, size_t = 7, size_t = 0 );
-		~StructLevelField();
+		~StructLevelField() = default;
 	
-		void setScore( const size_t );
-		size_t getScore() const;
+		void setLevel( const size_t );
+		size_t getLevel() const;	
 
-		const std::string &getFieldName() const;	
+		const std::string &getFieldName() const;
+	
 	private:
 		size_t level;
-		static const std::string FIELD_NAME;
+//		static constexpr std::string fieldName = "LEVEL";
 };
 
 #endif

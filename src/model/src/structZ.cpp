@@ -1,22 +1,31 @@
 // structZ.cpp
 
-#include "../headers/structZ.hpp"
+#include "structZ.hpp"
+
+#include <iostream>
 
 StructZ::StructZ( size_t pos, size_t x, size_t y )
 	: Struct( pos, x, y ) {
+	setPos();
 }
 
-const std::array< std::array< size_t, 5 >, 5 > &StructZ::displayStruct() {
+void StructZ::setPos() {
 	switch( getPosition() ) {
 		case 1: setFrstPos(); break;
 		case 2: setScndPos(); break;
 		case 3: setThrdPos(); break;
 		case 4: setFrthPos(); break;
 	}
-
-	return getPos();
+}
+/*
+void StructZ::setWidth() {
+	std::cout << "StructZ" << std::endl;
 }
 
+void StructZ::setHeight() {
+	std::cout << "StructZ" << std::endl;
+}
+*/
 const std::array< std::array< size_t, 5 >, 5 > &StructZ::getPos() const {
 	return element;
 }

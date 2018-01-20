@@ -1,21 +1,30 @@
 // structT.cpp
 
-#include "../headers/structT.hpp"
+#include "structT.hpp"
+
+#include <iostream>
 
 StructT::StructT( size_t pos, size_t x, size_t y ) 		: Struct( pos, x, y ) {
+	setPos();
 }
 
-const std::array< std::array< size_t, 5 >, 5 > &StructT::displayStruct() {
+void StructT::setPos() {
 	switch( getPosition() ) {
 		case 1: setFrstPos(); break;
 		case 2: setScndPos(); break;
 		case 3: setThrdPos(); break;
 		case 4: setFrthPos(); break;
 	}
-
-	return getPos();
+}
+/*
+void StructT::setHeight() {
+	std::cout << "StructT" << std::endl;
 }
 
+void StructT::setWidth() {
+	std::cout << "structT" << std::endl;
+}
+*/
 const std::array< std::array< size_t, 5 >, 5 > &StructT::getPos() const {
 	return element;
 }

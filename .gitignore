@@ -5,9 +5,12 @@
 
 *.sql
 *.sqlite
+*.gitignore
 
 # ignore all files in backup directory
 backup/
 test/
+tmp/
 
 sour*
+test*

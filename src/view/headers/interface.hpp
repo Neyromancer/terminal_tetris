@@ -5,12 +5,15 @@
 
 #include <memory>
 
-#include "../../control/headers/tetrisEngine.hpp"
+#include "tetrisEngine.hpp"
 
 class Interface {
 	public:
 		Interface( size_t = 32, size_t = 30 );
 		~Interface();
+
+		void setTetrisEngine( std::shared_ptr< TetrisEngine > );
+		const std::shared_ptr< TetrisEngine > &getTetrisEngine() const;
 
 		void displayInterface() const;
 		void displayMainField( size_t ) const;
@@ -98,7 +101,7 @@ class Interface {
 		size_t tetroH;
 		size_t tetroW;
 
-		std::unique_ptr< TetrisEngine > ptrEngine;
+		std::shared_ptr< TetrisEngine > ptrEngine;
 };
 
 #endif
