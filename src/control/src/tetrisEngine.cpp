@@ -55,14 +55,14 @@ std::unique_ptr< Struct > TetrisEngine::rndPcGenerator() {
 	auto rndNmb = rand() % 7;
 	
 	switch( rndNmb ) {
-		case 0: return std::make_unique< StructT >();
-		case 1: return std::make_unique< StructI >();
-		case 2: return std::make_unique< StructJ >();
-		case 3: return std::make_unique< StructZ >();
-		case 4: return std::make_unique< StructO >();
-		case 5: return std::make_unique< StructS >();
+		case 0: return std::make_unique< StructI >();
+		case 1: return std::make_unique< StructJ >();
+		case 2: return std::make_unique< StructL >();
+		case 3: return std::make_unique< StructO >();
+		case 4: return std::make_unique< StructS >();
+		case 5: return std::make_unique< StructT >();
 	}
-	return std::make_unique< StructT >();
+	return std::make_unique< StructZ >();
 }
 
 void TetrisEngine::processMainField() {
@@ -78,25 +78,26 @@ void TetrisEngine::processMainField() {
 		ptrPiece->ptrBaseStruct->setCoordX( rndCrdX );
 	} 
 		ptrPiece->ptrBaseStruct->setCoordY( h++ );
-		if ( ptrPiece->ptrBaseStruct->getCoordY() <= ptrField->ptrMainField->getHeight() - ptrPiece->ptrBaseStruct->getHeight() - 2 ) {
+		if /* ( ptrPiece->ptrBaseStruct->getCoordY() <= ptrField->ptrMainField->getHeight() - ptrPiece->ptrBaseStruct->getHeight() - 2 */ /*ptrField->ptrMainField->getHeight() */ /*  &&  
+		!isCollisionDetected( ptrPiece->ptrBaseStruct, ptrField->ptrMainField ) ) */ ( ptrPiece->ptrBaseStruct->getCoordY() <= ptrField->ptrMainField->getHeight() - ptrPiece->ptrBaseStruct->getHeight() - 2 ) {
 
 		if ( ptrPiece->ptrBaseStruct->getCoordY() - tmp != 0 ) {
 
 		for ( auto pcCrdY = 0; pcCrdY < ptrPiece->ptrBaseStruct->getHeight(); ++pcCrdY )
-			for ( auto pcCrdX = 0; pcCrdX <= ptrPiece->ptrBaseStruct->getWidth(); ++pcCrdX ) {
+			for ( auto pcCrdX = 0; pcCrdX < ptrPiece->ptrBaseStruct->getWidth(); ++pcCrdX ) {
 				ptrField->ptrMainField->setField( ( pcCrdX + ptrPiece->ptrBaseStruct->getCoordX() ), ( pcCrdY + tmp ), 0 );
 			}
 		}
 
-		for ( auto pcCrdY = 0; pcCrdY <= ptrPiece->ptrBaseStruct->getHeight(); ++pcCrdY )
-			for ( auto pcCrdX = 0; pcCrdX <= ptrPiece->ptrBaseStruct->getWidth(); ++pcCrdX ) {
+		for ( auto pcCrdY = 0; pcCrdY < ptrPiece->ptrBaseStruct->getHeight(); ++pcCrdY )
+			for ( auto pcCrdX = 0; pcCrdX < ptrPiece->ptrBaseStruct->getWidth(); ++pcCrdX ) {
 				if ( 1 == ptrPiece->ptrBaseStruct->getPos().at( pcCrdY ).at( pcCrdX ) ) {
 				ptrField->ptrMainField->setField( ( pcCrdX + ptrPiece->ptrBaseStruct->getCoordX() ), ( pcCrdY + ptrPiece->ptrBaseStruct->getCoordY() ), ptrPiece->ptrBaseStruct->getPos().at( pcCrdY ).at( pcCrdX ) );
 				}
 			}
 
 		tmp = ptrPiece->ptrBaseStruct->getCoordY();
-	} 
+	} /* else { */
 	if ( ptrPiece->ptrBaseStruct->getCoordY() > ptrField->ptrMainField->getHeight() - ptrPiece->ptrBaseStruct->getHeight() - 2 /*ptrField->ptrMainField->getHeight() */||  
 		isCollisionDetected( ptrPiece->ptrBaseStruct, ptrField->ptrMainField ) ) {
 		h = 0;
@@ -107,8 +108,7 @@ void TetrisEngine::processMainField() {
 bool TetrisEngine::isAreaOccupied( const size_t coordX, const size_t coordY ) const {
 	size_t x = 0;
 	size_t y = 0;
-	if( ptrField->ptrMainField->getField().at( coordX ).at( coordY ) == 1 )
-		return true; 
+	if( 1 == ptrField->ptrMainField->getField().at( coordX ).at( coordY ) ) return true; 
 
 	return false;
 }
@@ -140,16 +140,13 @@ void TetrisEngine::processControlInput() {
 // of tetromino whicl represent
 // top-left corner of the appropriate array
 bool TetrisEngine::isCollisionDetected( const std::unique_ptr< Struct > &ptrBaseStruct, const std::unique_ptr< StructMainField > &ptrMainField ) const {
-	for ( auto x = 0; x <= ptrBaseStruct->getWidth(); ++x ) {
-		std::cout << "ptrBaseStruct->getCoordY() is " << ptrBaseStruct->getCoordY() << std::endl;
-		std::cout << "ptrBaseStruct->getHeight() - 1 is " << ptrBaseStruct->getHeight() - 1 << std::endl;
-		std::cout << " ptrBaseStruct->getCoordY() + ptrBaseStruct->getHeight() is " << ptrBaseStruct->getCoordY() + ptrBaseStruct->getHeight() << std::endl;
-		if ( 1 == ( ptrBaseStruct->getPos().at( x ).at( ptrBaseStruct->getHeight() - 1 ) ) && 
-			( ptrMainField->getField().at( x + ptrBaseStruct->getCoordX() ).at( ptrBaseStruct->getCoordY() + ptrBaseStruct->getHeight() ) == ptrBaseStruct->getPos().at( x ).at( ptrBaseStruct->getHeight() - 1 ) ) ) {
-			std::cout << "is equal" << std::endl;
-			return true;
+	for ( auto y = 0; y < ptrBaseStruct->getHeight(); ++y ) {
+		for ( auto x = 0; x < ptrBaseStruct->getWidth(); ++x ) {
+			if ( ( 1 == ( ptrBaseStruct->getPos().at( y ).at( x ) ) ) && ( 0 == ptrBaseStruct->getPos().at( y + 1 ).at( x ) ) )
+				if ( ( ptrMainField->getField().at( x + ptrBaseStruct->getCoordX() ).at( ptrBaseStruct->getCoordY() + y + 1 ) == ptrBaseStruct->getPos().at( y ).at( x ) ) )
+				return true;
 		}
-	} 
+	}
 	return false;	
 }
 
