@@ -6,13 +6,15 @@
 
 class StructL: public Struct {
 	public:
-		StructL( size_t = 1, size_t = 0, size_t = 0 );
-		~StructL() {}
+		StructL(size_t = 1, size_t = 0, size_t = 0);
+    StructL(const StructL &) = default;
+    StructL &operator=(const StructL &) = default;
+    StructL(StructL &&) = default;
+    StructL &operator=(StructL &&) = default;
+		~StructL() = default;
 
 		// return array of 0 and 1's which are 
 		// represent elements
-//		virtual void setWidth() override;
-//		virtual void setHeight() override;
 		virtual void setPos() override;
 
 		virtual const std::array< std::array< size_t, 5 >, 5 > &getPos() const override;

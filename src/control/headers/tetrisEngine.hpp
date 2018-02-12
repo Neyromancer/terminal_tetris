@@ -1,5 +1,4 @@
 // tetrisEngin.hpp
-
 #ifndef _TETRIS_ENGINE_HPP_
 #define _TETRIS_ENGINE_HPP
 
@@ -17,6 +16,7 @@ class TetrisEngine {
 		// with the settings
 		void initGame(); 
 		void processControlInput();
+		void readInputFromConsole();
 		
 		void processMainField();
 		void processNextPieceField() const;
@@ -28,12 +28,15 @@ class TetrisEngine {
 		void storeTetrominoToField();
 		void createTetromino();
 
-		bool isAreaOccupied( const size_t coordX, const size_t coordY ) const;
-		bool isCollisionDetected( const std::unique_ptr< Struct > &, const std::unique_ptr< StructMainField > & ) const;
+		bool isAreaOccupied(const size_t coordX, const size_t coordY) const;
+		bool isRowOccupied(const std::unique_ptr< StructMainField> &, const size_t, const size_t, const size_t) const;
+		bool isRowFree(const std::unique_ptr< StructMainField> &, const size_t, const size_t, const size_t) const;
+		bool isCollisionDetected(const std::unique_ptr<Struct> &, const std::unique_ptr<StructMainField> &) const;
 		bool isGameOver() const;
 
-		void checkLinesToDelete() const;
-		void deleteLine( size_t );
+		void checkLinesToDelete();
+		void movePrvLines(size_t);
+		void deleteLine(const size_t);
 
 		// add function to change gaps
 		// between game fields
@@ -49,9 +52,9 @@ class TetrisEngine {
 		std::unique_ptr< GamePiece > ptrPiece;
 		struct GameField; 
 		std::unique_ptr< GameField > ptrField;
-//		std::unique_ptr< Interface > ptrInterface;
+		char control;
 
-		std::unique_ptr < Struct > rndPcGenerator();
+		std::unique_ptr <Struct> rndPcGenerator();
 };
 
 #endif

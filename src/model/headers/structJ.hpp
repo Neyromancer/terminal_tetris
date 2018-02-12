@@ -6,16 +6,18 @@
 
 class StructJ: public Struct {
 	public:
-		StructJ( size_t = 1, size_t = 0, size_t = 0 );
-		~StructJ() {}
+		StructJ(size_t = 1, size_t = 0, size_t = 0);
+    StructJ( const StructJ &) = default;
+    StructJ &operator=(const StructJ &) = default;
+    StructJ(StructJ &&) = default;
+    StructJ &operator=(StructJ &&) = default;
+		~StructJ() = default;
 
 		// return array of 0 and 1's which are 
 		// represent elements
-//		virtual void setWidth() override;
-//		virtual void setHeight() override;
 		virtual void setPos() override;
 
-		virtual const std::array< std::array< size_t, 5 >, 5 > &getPos() const override;
+		virtual const std::array<std::array<size_t, 5>, 5> &getPos() const override;
 
 		virtual void setFrstPos() override;
 		virtual void setScndPos() override;
